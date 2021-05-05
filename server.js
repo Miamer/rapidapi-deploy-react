@@ -7,7 +7,7 @@ require('dotenv').config()
 
 const app = express();
 
-const PORT = process.env.PORT || 8080 ;
+const PORT = process.env.PORT || 3001 ;
 
 // Adds json parsing middleware
 app.use(express.json());
@@ -41,6 +41,8 @@ app.post('/weather', async (req, res) => {
             tempC: data.response.ob.tempC,
             tempF: data.response.ob.tempF
         }
+
+        console.log('je suis weatherData', weatherData)
 
         // Return the data object
         return res.send(weatherData)

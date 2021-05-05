@@ -15,12 +15,15 @@ function App() {
     setLoading(true)
     setError(false)
 
+
+    //  seattle,wa
     //make edit to redeploy
     axios.post('/weather', { location })
       .then((data) => {
-        setTempC(data.tempC)
-        setTempF(data.tempF)
-        setConditions(data.conditions)
+        console.log("je suis data dans Apps",data)
+        setTempC(data.data.tempC)
+        setTempF(data.data.tempF)
+        setConditions(data.data.conditions)
       })
       .catch(e => {
         setError(true)
