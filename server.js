@@ -13,7 +13,8 @@ const PORT = process.env.PORT || 3001 ;
 app.use(express.json());
 
 // Setup static directory to serve
-app.use(express.static(path.resolve('client', 'build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 
 // Creates weather endpoint
 app.post('/weather', async (req, res) => {
@@ -54,7 +55,7 @@ app.post('/weather', async (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve('client', 'build', 'index.html'));
+    res.sendFile(path.join('client', 'build', 'index.html'));
 });
 
 // console.log that your server is up and running
